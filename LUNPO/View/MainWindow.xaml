@@ -28,7 +28,7 @@
             </MenuItem>
         </Menu>
 
-        <TextBox HorizontalAlignment="Left" Height="297" Margin="0,22,0,0" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Text.TextArea, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="517"/>
+        <TextBox Margin="0,22,0,0" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Text.TextArea, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </Window>
