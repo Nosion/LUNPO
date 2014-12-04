@@ -1,2 +1,15 @@
 C:\Users\John\Documents\visual studio 2013\Projects\LUNPO\LUNOP\bin\Debug\LUNOP.exe.config
 C:\Users\John\Documents\visual studio 2013\Projects\LUNPO\LUNOP\bin\Debug\LUNPO.exe.config
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\LUNPO.exe.config
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\LUNPO.exe
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\LUNPO.pdb
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\App.g.cs
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO_MarkupCompile.cache
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.g.resources
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.Properties.Resources.resources
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.csproj.GenerateResource.Cache
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.exe
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.pdb
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\View\MainWindow.baml
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\View\MainWindow.g.cs
