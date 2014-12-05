@@ -26,3 +26,6 @@ C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO_MarkupCompile.cache
 C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO.g.resources
 C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO.Properties.Resources.resources
 C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO.csproj.GenerateResource.Cache
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\LUNPO.exe.config
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.exe
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\obj\Debug\LUNPO.pdb
