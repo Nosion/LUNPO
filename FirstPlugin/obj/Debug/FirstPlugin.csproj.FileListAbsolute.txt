@@ -1,0 +1,5 @@
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\FirstPlugin\obj\Debug\FirstPlugin.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\Plugins\FirstPlugin.dll
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\Plugins\FirstPlugin.pdb
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\FirstPlugin\obj\Debug\FirstPlugin.dll
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\FirstPlugin\obj\Debug\FirstPlugin.pdb

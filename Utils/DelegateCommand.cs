@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-namespace LUNPO.Framework
+namespace Utils
 {
     public class DelegateCommand<T> : ICommand
     {

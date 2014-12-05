@@ -26,3 +26,9 @@ C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO_MarkupCompile.cache
 C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO.g.resources
 C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO.Properties.Resources.resources
 C:\Users\Jakob\Documents\LUNPO\LUNPO\obj\Debug\LUNPO.csproj.GenerateResource.Cache
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\ICSharpCode.AvalonEdit.dll
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\ICSharpCode.AvalonEdit.xml
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\PluginContracts.dll
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\PluginContracts.pdb
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\Utils.dll
+C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\LUNPO\bin\Debug\Utils.pdb

@@ -9,6 +9,8 @@ using System.Windows.Interop;
 using LUNPO.Framework;
 using LUNPO.Model;
 using Microsoft.Win32;
+using Utils;
+using System.Collections.ObjectModel;
 
 namespace LUNPO.ViewModel
 {
@@ -19,11 +21,12 @@ namespace LUNPO.ViewModel
         public Action<string> ShowMessage;
         public Action<string> SaveAsDlg; 
 
-        public DelegateCommand<object> SaveCommand { get; private set; } 
-
-        public TextViewModel()
+        public DelegateCommand<object> SaveCommand { get; private set; }
+        private ObservableCollection<MenuItem> pluginMenuItems; 
+        public TextViewModel(ObservableCollection<MenuItem> pluginMenuItems)
         {
             this.Text = new Text();
+            this.pluginMenuItems = pluginMenuItems;
 
             SaveAsCommand = new DelegateCommand<object>(SaveAsCommandExecute);
             ShowMessage = (Action<string>)(msg => MessageBox.Show(msg));
@@ -55,6 +58,19 @@ namespace LUNPO.ViewModel
             if (result == true)
             {
                 File.WriteAllText(save.FileName, msg);
+            }
+        }
+        public ObservableCollection<MenuItem> MenuItems
+        {
+            get
+            {
+                var menu = new ObservableCollection<MenuItem>();
+                foreach (MenuItem pluginMenuItem in pluginMenuItems)
+                {
+                    menu.Add(pluginMenuItem);
+                }
+
+                return menu;
             }
         }
     }
