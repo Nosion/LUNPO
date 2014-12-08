@@ -17,13 +17,16 @@ namespace LUNPO.ViewModel
     public class TextViewModel
     {
         public Text Text { get; private set; }
+        // Declares delegate, this is used to bind UI to ViewModel
         public DelegateCommand<object> SaveAsCommand { get; private set; }
         public DelegateCommand<object> SaveCommand { get; private set; }
         public DelegateCommand<object> OpenCommand { get; private set; }
+        // Action delegates - form of method pointers
         public Action<string> ShowMessage;
-        public Action<string> SaveAsDlg; 
+        public Action<string> SaveAsDlg;
+        public Action<string> OpenDlg; 
         
-
+        //
         private ObservableCollection<MenuItem> pluginMenuItems; 
         
         public TextViewModel(ObservableCollection<MenuItem> pluginMenuItems)
@@ -32,17 +35,25 @@ namespace LUNPO.ViewModel
             this.pluginMenuItems = pluginMenuItems;
 
             SaveAsCommand = new DelegateCommand<object>(SaveAsCommandExecute);
+            //Save As menu function
+            SaveAsDlg = msg => SaveFile(msg);
+
             SaveCommand = new DelegateCommand<object>(SaveCommandExecute);
-            OpenCommand = new DelegateCommand<object>(OpenExecute);
+
+            OpenCommand = new DelegateCommand<object>(OpenCommandExecute);
+            OpenDlg = OpenFile;
             
             // Test for showing text in popup-box.
             ShowMessage = msg => MessageBox.Show(msg);
-            //Save As menu function
-            SaveAsDlg = msg => SaveFile(msg);
         }
 
 
-        private void OpenExecute(object obj)
+        private void OpenCommandExecute(object obj)
+        {
+            OpenDlg(Text.TextArea);
+        }
+
+        private void OpenFile(object obj)
         {
             Stream myStream = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -54,7 +65,6 @@ namespace LUNPO.ViewModel
                 string fileName = openFileDialog.FileName;
                 Text.TextArea = File.ReadAllText(fileName);
             }
-
         }
 
         private void SaveAsCommandExecute(object obj)
@@ -82,7 +92,6 @@ namespace LUNPO.ViewModel
                 File.WriteAllText(save.FileName, msg);
             }
         }
-
 
         // Add plugin menu names to UI
         public ObservableCollection<MenuItem> MenuItems
