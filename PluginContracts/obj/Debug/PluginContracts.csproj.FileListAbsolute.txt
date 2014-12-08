@@ -5,3 +5,10 @@ C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\obj\De
 C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\bin\Debug\Utils.dll
 C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\bin\Debug\Utils.pdb
 C:\Users\John\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\obj\Debug\PluginContracts.csprojResolveAssemblyReference.cache
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\bin\Debug\PluginContracts.dll
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\bin\Debug\PluginContracts.pdb
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\bin\Debug\Utils.dll
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\bin\Debug\Utils.pdb
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\obj\Debug\PluginContracts.csprojResolveAssemblyReference.cache
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\obj\Debug\PluginContracts.dll
+C:\Users\Grym\Documents\Visual Studio 2013\Projects\LUNPO\PluginContracts\obj\Debug\PluginContracts.pdb
