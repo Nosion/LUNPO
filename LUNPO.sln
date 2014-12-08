@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstPlugin", "FirstPlugin\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{A66801B5-C66C-4167-946F-51C15F396A0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondPlugin", "SecondPlugin\SecondPlugin.csproj", "{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A66801B5-C66C-4167-946F-51C15F396A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A66801B5-C66C-4167-946F-51C15F396A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A66801B5-C66C-4167-946F-51C15F396A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
