@@ -10,7 +10,5 @@ namespace PluginContracts
     {
         string Name { get; }
         MenuItem MenuItems { get; }
-        
-        void Do();
     }
 }
