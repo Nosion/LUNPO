@@ -44,7 +44,7 @@ namespace FirstPlugin
             public void Do(object obj)
             {
                
-              Console.WriteLine("Do Something in First Plugin");
+              Console.WriteLine("Do Something in First Plugin.");
             }
         }
 }
