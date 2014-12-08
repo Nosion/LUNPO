@@ -18,21 +18,43 @@ namespace LUNPO.ViewModel
     {
         public Text Text { get; private set; }
         public DelegateCommand<object> SaveAsCommand { get; private set; }
+        public DelegateCommand<object> SaveCommand { get; private set; }
+        public DelegateCommand<object> OpenCommand { get; private set; }
         public Action<string> ShowMessage;
         public Action<string> SaveAsDlg; 
+        
 
-        public DelegateCommand<object> SaveCommand { get; private set; }
         private ObservableCollection<MenuItem> pluginMenuItems; 
+        
         public TextViewModel(ObservableCollection<MenuItem> pluginMenuItems)
         {
-            this.Text = new Text();
+            Text = new Text();
             this.pluginMenuItems = pluginMenuItems;
 
             SaveAsCommand = new DelegateCommand<object>(SaveAsCommandExecute);
-            ShowMessage = (Action<string>)(msg => MessageBox.Show(msg));
-            SaveAsDlg = (Action<string>) (msg => SaveFile(msg));
-
             SaveCommand = new DelegateCommand<object>(SaveCommandExecute);
+            OpenCommand = new DelegateCommand<object>(OpenExecute);
+            
+            // Test for showing text in popup-box.
+            ShowMessage = msg => MessageBox.Show(msg);
+            //Save As menu function
+            SaveAsDlg = msg => SaveFile(msg);
+        }
+
+
+        private void OpenExecute(object obj)
+        {
+            Stream myStream = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                string fileName = openFileDialog.FileName;
+                Text.TextArea = File.ReadAllText(fileName);
+            }
+
         }
 
         private void SaveAsCommandExecute(object obj)
@@ -60,6 +82,9 @@ namespace LUNPO.ViewModel
                 File.WriteAllText(save.FileName, msg);
             }
         }
+
+
+        // Add plugin menu names to UI
         public ObservableCollection<MenuItem> MenuItems
         {
             get

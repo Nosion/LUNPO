@@ -12,22 +12,35 @@
     <Grid>
         <Menu IsMainMenu="True">
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Command="{Binding SaveAsCommand}">
+                <MenuItem Header="_New">
                     <MenuItem.Icon>
                         <Image></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Open" Command="{Binding SaveAsCommand}">
+                <Separator />
+                <MenuItem Header="_Open" Command="{Binding OpenCommand}">
                     <MenuItem.Icon>
                         <Image></Image>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="_Resent files">
+                    <MenuItem.Icon>
+                        <Image></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
                 <MenuItem Header="_Save" Command="{Binding SaveCommand}">
                     <MenuItem.Icon>
                         <Image></Image>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="_SaveAs" Command="{Binding SaveAsCommand}">
+                    <MenuItem.Icon>
+                        <Image></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Exit">
                     <MenuItem.Icon>
                         <Image></Image>
                     </MenuItem.Icon>
