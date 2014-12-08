@@ -62,8 +62,16 @@ namespace LUNPO.ViewModel
 
             if (result == true)
             {
-                string fileName = openFileDialog.FileName;
-                Text.TextArea = File.ReadAllText(fileName);
+                if (Text.TextArea == null)
+                {
+                    string fileName = openFileDialog.FileName;
+                    Text.TextArea = File.ReadAllText(fileName);
+                }
+                else
+                {
+                    ShowMessage("Text area is not empty!");
+                }
+                
             }
         }
 
