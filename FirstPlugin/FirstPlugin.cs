@@ -9,15 +9,15 @@ using System.Windows;
 using PluginContracts;
 using Utils;
 using Microsoft.Win32;
-
+using LUNPO.Model;
 
 namespace FirstPlugin
 {
 
-
-
         public class FirstPlugin : IPlugin
         {
+            public Text Text { get; private set; }
+
             public string Name
             {
                 get
@@ -43,8 +43,8 @@ namespace FirstPlugin
 
             public void Do(object obj)
             {
-               
-              Console.WriteLine("Do Something in First Plugin.");
+              
+              Console.WriteLine("Tester");
             }
         }
 }
