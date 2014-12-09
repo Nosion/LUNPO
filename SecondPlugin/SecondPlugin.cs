@@ -38,6 +38,7 @@ namespace SecondPlugin
             }
         }
 
+<<<<<<< HEAD
         DispatcherTimer autosaveTimer = new DispatcherTimer(TimeSpan.FromSeconds(autosaveInterval), DispatcherPriority.Background, new EventHandler(DoAutoSave), MediaTypeNames.Application.Current.Dispatcher);
         
 
@@ -47,6 +48,11 @@ namespace SecondPlugin
         }
 
         public void DoAutoSave()
+=======
+        public string TextBoxContent { get; set; }
+
+        public void Do()
+>>>>>>> 7b54678422f1d2a87feab203b92c36d31686e587
         {
             Console.WriteLine("Do Something in Second Plugin");
         }
