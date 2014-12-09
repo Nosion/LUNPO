@@ -12,6 +12,8 @@ using PluginContracts;
 using Utils;
 using Microsoft.Win32;
 using LUNPO.Model;
+using System.IO;
+using System.Reflection;
 
 namespace FirstPlugin
 {
@@ -76,8 +78,9 @@ namespace FirstPlugin
             private string textBoxContent;
             public void Do(object obj)
             {
-                TextBoxContent = "hej";
-              Console.WriteLine("Tester");
+
+                TextBoxContent = Properties.Resources.testhtml;
+
             }
         }
 }
