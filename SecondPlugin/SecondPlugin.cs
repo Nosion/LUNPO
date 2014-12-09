@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net.Mime;
 using System.Runtime.CompilerServices;
@@ -8,9 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Microsoft.Win32;
 using PluginContracts;
 using Utils;
 using LUNPO.Model;
+using LUNPO.ViewModel;
 
 
 namespace SecondPlugin
@@ -76,8 +79,19 @@ namespace SecondPlugin
 
         public void AutoSave(object obj)
         {
+            SaveFileDialog save = new SaveFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
+
             
-            Console.WriteLine("Autosave");
+
+            if (save.ShowDialog() == true)
+            {
+
+                File.WriteAllText(save.FileName, save.FileName);
+                //Console.WriteLine(TextViewModel.SavePath);
+            }
         }
 
 
