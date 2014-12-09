@@ -12,7 +12,7 @@ namespace UnitTest
         public void SecondPlugin_Console_Do_Test()
         {
             SecondPlugin.AutoSavePlugin autoSavePlugin = new SecondPlugin.AutoSavePlugin();
-            autoSavePlugin.DoAutoSave();
+            //autoSavePlugin.DoAutoSave();
             
 
         }

@@ -1,28 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Mime;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using PluginContracts;
 using Utils;
+using LUNPO.Model;
 
 
 namespace SecondPlugin
 {
-
-
-    public class AutoSavePlugin : IPlugin
+    public class AutoSavePlugin : IPlugin, INotifyPropertyChanged
     {
-        private static double autosaveInterval;
+        //public MediaTypeNames.Text Text { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private string textBoxContent;
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
+        {
+            if (Equals(storage, value))
+            {
+                return false;
+            }
+
+            storage = value;
+            this.OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler eventHandler = this.PropertyChanged;
+            if (eventHandler != null)
+            {
+                eventHandler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
         public string Name
         {
             get
             {
-                return "Second Plugin";
+                return "AutoSave Plugin";
             }
         }
 
@@ -30,31 +53,33 @@ namespace SecondPlugin
         {
             get
             {
-
+                DelegateCommand<object> delegateSomething = new DelegateCommand<object>(AutoSave);
                 var menu = new MenuItem("AutoSavePlugin");
-                menu.Children.Add(new MenuItem("Save to console"));
+                MenuItem menuItem = new MenuItem("Write to console");
 
+
+                menuItem.Command = delegateSomething;
+                menu.Children.Add(menuItem);
                 return menu;
             }
         }
 
-<<<<<<< HEAD
-        DispatcherTimer autosaveTimer = new DispatcherTimer(TimeSpan.FromSeconds(autosaveInterval), DispatcherPriority.Background, new EventHandler(DoAutoSave), MediaTypeNames.Application.Current.Dispatcher);
-        
-
-        private void DoAutoSave(object sender, EventArgs e)
+        public string TextBoxContent
         {
-            // Enter save logic here...
+            get { return textBoxContent; }
+            set
+            {
+                textBoxContent = value;
+                OnPropertyChanged("TextBoxContent");
+            }
         }
 
-        public void DoAutoSave()
-=======
-        public string TextBoxContent { get; set; }
-
-        public void Do()
->>>>>>> 7b54678422f1d2a87feab203b92c36d31686e587
+        public void AutoSave(object obj)
         {
-            Console.WriteLine("Do Something in Second Plugin");
+            
+            Console.WriteLine("Autosave");
         }
+
+
     }
 }
