@@ -17,6 +17,7 @@ namespace LUNPO.ViewModel
 {
     public class TextViewModel
     {
+        public string SavePath;
         public Text Text { get; private set; }
         // Declares delegate, this is used to bind UI to ViewModel
         public DelegateCommand<object> SaveAsCommand { get; private set; }
@@ -74,15 +75,16 @@ namespace LUNPO.ViewModel
 
             if (openFileDialog.ShowDialog() == true)
             {
-                if (Text.TextArea == null)
-                {
+                // If anything has been written in the textarea, it evaluates to else/false
+                /*if (Text.TextArea == null)
+                {*/
                     string fileName = openFileDialog.FileName;
                     Text.TextArea = File.ReadAllText(fileName);
-                }
+                /*}
                 else
                 {
                     ShowMessage("Text area is not empty!");
-                }
+                }*/
                 
             }
         }
@@ -100,14 +102,15 @@ namespace LUNPO.ViewModel
 
         private void SaveFile(string msg)
         {
-            SaveFileDialog save = new SaveFileDialog();
-            
-            Nullable<bool> result = save.ShowDialog();
 
-            save.DefaultExt = ".txt";
-            save.Filter = "Text documents (.txt)|*.txt"; 
+            SaveFileDialog save = new SaveFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
 
-            if (result == true)
+            SavePath = save.FileName;
+
+            if (save.ShowDialog() == true)
             {
                 File.WriteAllText(save.FileName, msg);
             }

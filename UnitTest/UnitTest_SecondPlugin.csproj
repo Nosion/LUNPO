@@ -50,8 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UnitTest_SecondPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginContracts\PluginContracts.csproj">
+      <Project>{fd0daf54-09da-4102-b227-f8ca593c4d24}</Project>
+      <Name>PluginContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecondPlugin\SecondPlugin.csproj">
+      <Project>{49c2cc86-6d27-4263-ad8c-bac5b3a55c5c}</Project>
+      <Name>SecondPlugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{FDC4649B-7FC5-4281-A66A-12EE188EEBE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_SecondPlugin", "UnitTest\UnitTest_SecondPlugin.csproj", "{FDC4649B-7FC5-4281-A66A-12EE188EEBE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LUNPO", "LUNPO\LUNPO.csproj", "{2A06F37B-47AD-4FD0-B9CF-1BB5C1AE3448}"
 EndProject

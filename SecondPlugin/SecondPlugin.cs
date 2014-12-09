@@ -1,24 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Net.Mime;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
+using Microsoft.Win32;
 using PluginContracts;
 using Utils;
+using LUNPO.Model;
+using LUNPO.ViewModel;
 
 
 namespace SecondPlugin
 {
-
-
-    public class SecondPlugin : IPlugin
+    public class AutoSavePlugin : IPlugin, INotifyPropertyChanged
     {
+        //public MediaTypeNames.Text Text { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private string textBoxContent;
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
+        {
+            if (Equals(storage, value))
+            {
+                return false;
+            }
+
+            storage = value;
+            this.OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler eventHandler = this.PropertyChanged;
+            if (eventHandler != null)
+            {
+                eventHandler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         public string Name
         {
             get
             {
-                return "Second Plugin";
+                return "AutoSave Plugin";
             }
         }
 
@@ -26,19 +56,44 @@ namespace SecondPlugin
         {
             get
             {
+                DelegateCommand<object> delegateSomething = new DelegateCommand<object>(AutoSave);
+                var menu = new MenuItem("AutoSavePlugin");
+                MenuItem menuItem = new MenuItem("Write to console");
 
-                var menu = new MenuItem("SecondPlugin");
-                menu.Children.Add(new MenuItem("Write to console"));
 
+                menuItem.Command = delegateSomething;
+                menu.Children.Add(menuItem);
                 return menu;
             }
         }
 
-        public string TextBoxContent { get; set; }
-
-        public void Do()
+        public string TextBoxContent
         {
-            Console.WriteLine("Do Something in Second Plugin");
+            get { return textBoxContent; }
+            set
+            {
+                textBoxContent = value;
+                OnPropertyChanged("TextBoxContent");
+            }
         }
+
+        public void AutoSave(object obj)
+        {
+            SaveFileDialog save = new SaveFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
+
+            
+
+            if (save.ShowDialog() == true)
+            {
+
+                File.WriteAllText(save.FileName, save.FileName);
+                //Console.WriteLine(TextViewModel.SavePath);
+            }
+        }
+
+
     }
 }
