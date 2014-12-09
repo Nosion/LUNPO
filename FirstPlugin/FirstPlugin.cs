@@ -20,6 +20,7 @@ namespace FirstPlugin
 
         public class FirstPlugin : IPlugin, INotifyPropertyChanged
         {
+            public string SavePath { get; set; }
             public Text Text { get; private set; }
             public event PropertyChangedEventHandler PropertyChanged;
             protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)

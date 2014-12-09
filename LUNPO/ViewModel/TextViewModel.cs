@@ -17,7 +17,21 @@ namespace LUNPO.ViewModel
 {
     public class TextViewModel
     {
-        public string SavePath;
+        private string savePath;
+
+        public string SavePath
+        {
+            get { return savePath; }
+            set
+            {
+                savePath = value;
+                foreach (var plugin in plugins)
+                {
+                    plugin.Value.SavePath = savePath;
+                }
+            }
+        }
+        
         public Text Text { get; private set; }
         // Declares delegate, this is used to bind UI to ViewModel
         public DelegateCommand<object> SaveAsCommand { get; private set; }
@@ -38,6 +52,7 @@ namespace LUNPO.ViewModel
             {
                 plugin.Value.TextBoxContent = this.Text.TextArea;
                 plugin.Value.PropertyChanged += Value_PropertyChanged;
+                
             }
 
             SaveAsCommand = new DelegateCommand<object>(SaveAsCommandExecute);
@@ -107,12 +122,11 @@ namespace LUNPO.ViewModel
             {
                 Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
             };
-
-            SavePath = save.FileName;
-
+            
             if (save.ShowDialog() == true)
             {
                 File.WriteAllText(save.FileName, msg);
+                SavePath = save.FileName;
             }
         }
 

@@ -20,6 +20,7 @@ namespace SecondPlugin
 {
     public class AutoSavePlugin : IPlugin, INotifyPropertyChanged
     {
+        public string SavePath { get; set; }
         //public MediaTypeNames.Text Text { get; private set; }
         public event PropertyChangedEventHandler PropertyChanged;
         private string textBoxContent;
@@ -79,19 +80,14 @@ namespace SecondPlugin
 
         public void AutoSave(object obj)
         {
-            SaveFileDialog save = new SaveFileDialog()
-            {
-                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
-            };
+            Console.WriteLine(SavePath);
 
-            
-
-            if (save.ShowDialog() == true)
+            /*if (save.ShowDialog() == true)
             {
 
                 File.WriteAllText(save.FileName, save.FileName);
                 //Console.WriteLine(TextViewModel.SavePath);
-            }
+            }*/
         }
 
 

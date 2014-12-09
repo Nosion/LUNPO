@@ -14,7 +14,8 @@ namespace PluginContracts
         MenuItem MenuItems { get; }
 
         string TextBoxContent { get; set; }
-
+        string SavePath { get; set; }
+        
         event PropertyChangedEventHandler PropertyChanged;
     }
 }
