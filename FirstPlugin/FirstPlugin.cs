@@ -15,6 +15,7 @@ using LUNPO.Model;
 using System.IO;
 using System.Reflection;
 
+
 namespace FirstPlugin
 {
 
@@ -57,7 +58,7 @@ namespace FirstPlugin
                 {
                     DelegateCommand<object> delegateSomething = new DelegateCommand<object>(Do);
                     var menu = new MenuItem("FirstPlugin");
-                    MenuItem menuItem = new MenuItem("Write to console");
+                    MenuItem menuItem = new MenuItem("HTML tag");
                     
                     
                     menuItem.Command = delegateSomething;
@@ -78,7 +79,10 @@ namespace FirstPlugin
             private string textBoxContent;
             public void Do(object obj)
             {
-
+                if (TextBoxContent != null)
+                {
+                    
+                }
                 TextBoxContent = Properties.Resources.testhtml;
 
             }
