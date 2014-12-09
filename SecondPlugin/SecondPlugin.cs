@@ -34,6 +34,8 @@ namespace SecondPlugin
             }
         }
 
+        public string TextBoxContent { get; set; }
+
         public void Do()
         {
             Console.WriteLine("Do Something in Second Plugin");

@@ -24,13 +24,7 @@ namespace LUNPO
         {
             PluginInit pluginInit = new PluginInit();
 
-            ObservableCollection<Utils.MenuItem> pluginMenuItems = new ObservableCollection<Utils.MenuItem>();
-
-            foreach (var plugin in pluginInit.Plugins)
-            {
-                pluginMenuItems.Add(plugin.Value.MenuItems);
-            }
-            TextViewModel textViewModel = new TextViewModel(pluginMenuItems);
+            TextViewModel textViewModel = new TextViewModel(pluginInit.Plugins);
 
             var window = new MainWindow
             {

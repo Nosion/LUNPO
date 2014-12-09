@@ -9,6 +9,7 @@ using System.Windows.Interop;
 using LUNPO.Framework;
 using LUNPO.Model;
 using Microsoft.Win32;
+using PluginContracts;
 using Utils;
 using System.Collections.ObjectModel;
 
@@ -24,15 +25,19 @@ namespace LUNPO.ViewModel
         // Action delegates - form of method pointers
         public Action<string> ShowMessage;
         public Action<string> SaveAsDlg;
-        public Action<string> OpenDlg; 
-        
+        public Action<string> OpenDlg;
+        private Dictionary<string, IPlugin> plugins; 
         //
-        private ObservableCollection<MenuItem> pluginMenuItems; 
         
-        public TextViewModel(ObservableCollection<MenuItem> pluginMenuItems)
+        public TextViewModel(Dictionary<string, IPlugin> plugins)
         {
             Text = new Text();
-            this.pluginMenuItems = pluginMenuItems;
+            this.plugins = plugins;
+            foreach (var plugin in this.plugins)
+            {
+                plugin.Value.TextBoxContent = this.Text.TextArea;
+                plugin.Value.PropertyChanged += Value_PropertyChanged;
+            }
 
             SaveAsCommand = new DelegateCommand<object>(SaveAsCommandExecute);
             //Save As menu function
@@ -47,6 +52,11 @@ namespace LUNPO.ViewModel
             ShowMessage = msg => MessageBox.Show(msg);
         }
 
+        void Value_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            Text.TextArea = ((IPlugin) sender).TextBoxContent;
+        }
+
 
         private void OpenCommandExecute(object obj)
         {
@@ -55,12 +65,14 @@ namespace LUNPO.ViewModel
 
         private void OpenFile(object obj)
         {
-            Stream myStream = null;
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
+            };
 
-            Nullable<bool> result = openFileDialog.ShowDialog();
+            
 
-            if (result == true)
+            if (openFileDialog.ShowDialog() == true)
             {
                 if (Text.TextArea == null)
                 {
@@ -101,11 +113,21 @@ namespace LUNPO.ViewModel
             }
         }
 
+        
         // Add plugin menu names to UI
         public ObservableCollection<MenuItem> MenuItems
         {
             get
             {
+
+                ObservableCollection<Utils.MenuItem> pluginMenuItems = new ObservableCollection<Utils.MenuItem>();
+
+                foreach (var plugin in this.plugins)
+                {
+                    pluginMenuItems.Add(plugin.Value.MenuItems);
+                }
+
+
                 var menu = new ObservableCollection<MenuItem>();
                 foreach (MenuItem pluginMenuItem in pluginMenuItems)
                 {
