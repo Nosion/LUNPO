@@ -6,24 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
-using LUNPO.Framework;
-using LUNPO.Model;
+using Client.Framework;
+using Client.Model;
 using Microsoft.Win32;
 using PluginContracts;
 using Utils;
 using System.Collections.ObjectModel;
 
-namespace LUNPO.ViewModel
+namespace Client.ViewModel
 {
     public class TextViewModel
     {
         private string savePath;
 
+        // Get and set filepath where file is saved.
         public string SavePath
         {
             get { return savePath; }
             set
             {
+                // Value equals to filepath, that is set in savefile method.
                 savePath = value;
                 foreach (var plugin in plugins)
                 {
@@ -33,7 +35,7 @@ namespace LUNPO.ViewModel
         }
         
         public Text Text { get; private set; }
-        // Declares delegate, this is used to bind UI to ViewModel
+        // Declares delegatecommands, this is used to bind UI to ViewModel
         public DelegateCommand<object> SaveAsCommand { get; private set; }
         public DelegateCommand<object> SaveCommand { get; private set; }
         public DelegateCommand<object> OpenCommand { get; private set; }
@@ -41,9 +43,11 @@ namespace LUNPO.ViewModel
         public Action<string> ShowMessage;
         public Action<string> SaveAsDlg;
         public Action<string> OpenDlg;
+
         private Dictionary<string, IPlugin> plugins; 
         //
         
+        // Constructer 
         public TextViewModel(Dictionary<string, IPlugin> plugins)
         {
             Text = new Text();
@@ -51,17 +55,18 @@ namespace LUNPO.ViewModel
             foreach (var plugin in this.plugins)
             {
                 plugin.Value.TextBoxContent = this.Text.TextArea;
-                plugin.Value.PropertyChanged += Value_PropertyChanged;
-                
+                plugin.Value.PropertyChanged += Value_PropertyChanged;    
             }
 
             SaveAsCommand = new DelegateCommand<object>(SaveAsCommandExecute);
-            //Save As menu function
+            // Cast textarea's string to SaveFile method, using a lambda operator.
             SaveAsDlg = msg => SaveFile(msg);
 
+            // Creating a new deligatecommand to another method, so that we easily can unittext inbetween.
             SaveCommand = new DelegateCommand<object>(SaveCommandExecute);
 
             OpenCommand = new DelegateCommand<object>(OpenCommandExecute);
+
             OpenDlg = OpenFile;
             
             // Test for showing text in popup-box.

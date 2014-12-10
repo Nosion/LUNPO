@@ -11,7 +11,7 @@ using System.Windows;
 using PluginContracts;
 using Utils;
 using Microsoft.Win32;
-using LUNPO.Model;
+using Client.Model;
 using System.IO;
 using System.Reflection;
 
@@ -60,6 +60,7 @@ namespace FirstPlugin
                     DelegateCommand<object> delegateSomething = new DelegateCommand<object>(Do);
                     var menu = new MenuItem("FirstPlugin");
                     MenuItem menuItem = new MenuItem("HTML tag");
+                    MenuItem menuitem = new MenuItem("test");
                     
                     
                     menuItem.Command = delegateSomething;
@@ -84,8 +85,10 @@ namespace FirstPlugin
                 {
                     
                 }
-                TextBoxContent = Properties.Resources.testhtml;
-
+                else {
+                    TextBoxContent = Properties.Resources.testhtml;
+                }
+                
             }
         }
 }

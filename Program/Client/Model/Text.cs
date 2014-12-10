@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LUNPO.Framework;
+using Client.Framework;
 
-namespace LUNPO.Model
+namespace Client.Model
 {
    public class Text : ObservableObject
     {

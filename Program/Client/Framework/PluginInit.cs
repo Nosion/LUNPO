@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LUNPO.Framework;
+using Client.Framework;
 using PluginContracts;
 
 
-namespace LUNPO.Framework
+namespace Client.Framework
 {
 
     class PluginInit

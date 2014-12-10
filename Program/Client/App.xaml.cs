@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using LUNPO.Framework;
-using LUNPO.View;
-using LUNPO.ViewModel;
+using Client.Framework;
+using Client.View;
+using Client.ViewModel;
 using PluginContracts;
 using Utils;
 namespace LUNPO

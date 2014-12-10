@@ -12,8 +12,8 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using PluginContracts;
 using Utils;
-using LUNPO.Model;
-using LUNPO.ViewModel;
+using Client.Model;
+using Client.ViewModel;
 
 
 namespace SecondPlugin
