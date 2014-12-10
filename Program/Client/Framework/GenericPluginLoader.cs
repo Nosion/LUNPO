@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace Client.Framework
+namespace DesktopClient.Framework
 {
     public static class GenericPluginLoader<T>
     {

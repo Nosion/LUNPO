@@ -12,8 +12,8 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using PluginContracts;
 using Utils;
-using Client.Model;
-using Client.ViewModel;
+using DesktopClient.Model;
+using DesktopClient.ViewModel;
 
 
 namespace AutoSavePlugin

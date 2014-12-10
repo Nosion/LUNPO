@@ -8,12 +8,12 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Client.Framework;
-using Client.View;
-using Client.ViewModel;
+using DesktopClient.Framework;
+using DesktopClient.View;
+using DesktopClient.ViewModel;
 using PluginContracts;
 using Utils;
-namespace LUNPO
+namespace DesktopClient
 {
     /// <summary>
     /// Interaction logic for App.xaml

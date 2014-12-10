@@ -58,6 +58,10 @@
       <Project>{2a06f37b-47ad-4fd0-b9cf-1bb5c1ae3448}</Project>
       <Name>DesktopClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Program\PluginContracts\PluginContracts.csproj">
+      <Project>{fd0daf54-09da-4102-b227-f8ca593c4d24}</Project>
+      <Name>PluginContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Program\Utils\Utils.csproj">
       <Project>{a66801b5-c66c-4167-946f-51c15f396a0c}</Project>
       <Name>Utils</Name>

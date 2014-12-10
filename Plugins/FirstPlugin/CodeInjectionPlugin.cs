@@ -11,7 +11,7 @@ using System.Windows;
 using PluginContracts;
 using Utils;
 using Microsoft.Win32;
-using Client.Model;
+using DesktopClient.Model;
 using System.IO;
 using System.Reflection;
 

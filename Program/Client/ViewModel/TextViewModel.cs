@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
-using Client.Framework;
-using Client.Model;
+using DesktopClient.Framework;
+using DesktopClient.Model;
 using Microsoft.Win32;
 using PluginContracts;
 using Utils;
 using System.Collections.ObjectModel;
 
-namespace Client.ViewModel
+namespace DesktopClient.ViewModel
 {
     public class TextViewModel
     {
@@ -45,9 +45,8 @@ namespace Client.ViewModel
         public Action<string> OpenDlg;
 
         private Dictionary<string, IPlugin> plugins; 
-        //
         
-        // Constructer 
+        // Constructer - taking a list of plugins.
         public TextViewModel(Dictionary<string, IPlugin> plugins)
         {
             Text = new Text();
@@ -75,7 +74,7 @@ namespace Client.ViewModel
 
         void Value_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            Text.TextArea = ((IPlugin) sender).TextBoxContent;
+            Text.TextArea = ((IPlugin)sender).TextBoxContent;
         }
 
 
