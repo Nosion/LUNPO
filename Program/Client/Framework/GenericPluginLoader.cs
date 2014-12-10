@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace LUNPO.Framework
+namespace Client.Framework
 {
     public static class GenericPluginLoader<T>
     {

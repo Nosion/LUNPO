@@ -2,7 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SecondPlugin;
 
-namespace UnitTest
+
+
+namespace SecondPlugin.UnitTest
 {
     [TestClass]
     public class UnitTest_SecondPlugin
