@@ -65,7 +65,7 @@ namespace DesktopClient.ViewModel
             SaveCommand = new DelegateCommand<object>(SaveCommandExecute);
 
             OpenCommand = new DelegateCommand<object>(OpenCommandExecute);
-
+            // OpenDlg delegate points to OpenFile method
             OpenDlg = OpenFile;
             
             // Test for showing text in popup-box.
@@ -91,30 +91,20 @@ namespace DesktopClient.ViewModel
                 Filter = "Text Files(*.txt)|*.txt|All(*.*)|*"
             };
 
-            
-
             if (openFileDialog.ShowDialog() == true)
             {
-                // If anything has been written in the textarea, it evaluates to else/false
-                /*if (Text.TextArea == null)
-                {*/
-                    string fileName = openFileDialog.FileName;
-                    Text.TextArea = File.ReadAllText(fileName);
-                /*}
-                else
-                {
-                    ShowMessage("Text area is not empty!");
-                }*/
-                
+                string fileName = openFileDialog.FileName;
+                Text.TextArea = File.ReadAllText(fileName);
             }
         }
 
+
         private void SaveAsCommandExecute(object obj)
         {
-            //ShowMessage(Text.TextArea);
             SaveAsDlg(Text.TextArea);
         }
 
+        // Uses the ShowMessage delegate to pass the text from TextArea
         private void SaveCommandExecute(object obj)
         {
             ShowMessage(Text.TextArea);
@@ -135,21 +125,18 @@ namespace DesktopClient.ViewModel
                 SavePath = save.FileName;
             }
         }
-
         
         // Add plugin menu names to UI
         public ObservableCollection<MenuItem> MenuItems
         {
             get
             {
-
                 ObservableCollection<Utils.MenuItem> pluginMenuItems = new ObservableCollection<Utils.MenuItem>();
 
                 foreach (var plugin in this.plugins)
                 {
                     pluginMenuItems.Add(plugin.Value.MenuItems);
                 }
-
 
                 var menu = new ObservableCollection<MenuItem>();
                 foreach (MenuItem pluginMenuItem in pluginMenuItems)

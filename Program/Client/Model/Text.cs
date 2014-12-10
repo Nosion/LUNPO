@@ -15,6 +15,7 @@ namespace DesktopClient.Model
             get { return _textArea; }
             set
             {
+                // value is the input from the user in the textbox, the _textArea = to the input written in the textbox
                 _textArea = value;
                 NotifyPropertyChanged("TextArea");
             }
