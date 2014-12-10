@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{12671ECF-AFA7-4F2E-9456-FB7F7B189650}</ProjectGuid>
+    <ProjectGuid>{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FirstPlugin</RootNamespace>
-    <AssemblyName>FirstPlugin</AssemblyName>
+    <RootNamespace>AutoSavePlugin</RootNamespace>
+    <AssemblyName>AutoSavePlugin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,27 +42,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstPlugin.cs" />
+    <Compile Include="AutoSavePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\testhtml.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Program\Client\Client.csproj">
+    <ProjectReference Include="..\..\Program\Client\DesktopClient.csproj">
       <Project>{2a06f37b-47ad-4fd0-b9cf-1bb5c1ae3448}</Project>
-      <Name>Client</Name>
+      <Name>DesktopClient</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Program\PluginContracts\PluginContracts.csproj">
       <Project>{fd0daf54-09da-4102-b227-f8ca593c4d24}</Project>

@@ -16,10 +16,10 @@ using System.IO;
 using System.Reflection;
 
 
-namespace FirstPlugin
+namespace CodeInjectionPlugin
 {
 
-        public class FirstPlugin : IPlugin, INotifyPropertyChanged
+        public class CodeInjection : IPlugin, INotifyPropertyChanged
         {
             public string SavePath { get; set; }
             public Text Text { get; private set; }

@@ -16,9 +16,9 @@ using Client.Model;
 using Client.ViewModel;
 
 
-namespace SecondPlugin
+namespace AutoSavePlugin
 {
-    public class AutoSavePlugin : IPlugin, INotifyPropertyChanged
+    public class AutoSave : IPlugin, INotifyPropertyChanged
     {
         public string SavePath { get; set; }
         //public MediaTypeNames.Text Text { get; private set; }
@@ -57,7 +57,7 @@ namespace SecondPlugin
         {
             get
             {
-                DelegateCommand<object> delegateSomething = new DelegateCommand<object>(AutoSave);
+                DelegateCommand<object> delegateSomething = new DelegateCommand<object>(AutoTimeSave);
                 var menu = new MenuItem("AutoSavePlugin");
                 MenuItem menuItem = new MenuItem("Write to console");
 
@@ -78,7 +78,7 @@ namespace SecondPlugin
             }
         }
 
-        public void AutoSave(object obj)
+        public void AutoTimeSave(object obj)
         {
             Console.WriteLine(SavePath);
 

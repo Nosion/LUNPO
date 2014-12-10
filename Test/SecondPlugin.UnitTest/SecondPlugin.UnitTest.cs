@@ -1,19 +1,19 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SecondPlugin;
+using AutoSavePlugin;
 
 
 
 namespace SecondPlugin.UnitTest
 {
     [TestClass]
-    public class UnitTest_SecondPlugin
+    public class SecondPluginTest
     {
         [TestMethod]
         //[ExpectedException(typeof(ArgumentNullException))]
         public void SecondPlugin_Console_Do_Test()
         {
-            SecondPlugin.AutoSavePlugin autoSavePlugin = new SecondPlugin.AutoSavePlugin();
+            AutoSavePlugin.AutoSave autoSavePlugin = new AutoSavePlugin.AutoSave();
             //autoSavePlugin.DoAutoSave();
             
 
