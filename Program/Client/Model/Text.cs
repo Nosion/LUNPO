@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Client.Framework;
+using DesktopClient.Framework;
 
-namespace Client.Model
+namespace DesktopClient.Model
 {
    public class Text : ObservableObject
     {

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Client.Framework;
+using DesktopClient.Framework;
 using PluginContracts;
 
 
-namespace Client.Framework
+namespace DesktopClient.Framework
 {
 
-    class PluginInit
+    public class PluginInit
     {
         public Dictionary<string, IPlugin> Plugins;
 
