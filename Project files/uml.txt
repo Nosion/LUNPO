@@ -1,0 +1,29 @@
+@startuml
+
+DesktopClient - Class Diagram
+
+
+class TextViewModel {
+  +OpenDlg
+  -plugins
+  +SaveAsDlg
+  -string savePath
+  +ShowMessage
+  
+  -void OpenCommandExecute()
+  -void OpenFile()
+  -void SaveAsCommandExecute()
+  -void SaveCommandExecute()
+  -void SaveFile()
+  +TextVievModel()
+  -void Value_PropertyChanged()
+}
+
+class Text:ObservableObject {
+  -string _textArea
+  
+}
+class House
+class Commune
+
+@enduml
