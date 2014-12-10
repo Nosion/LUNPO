@@ -1,14 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using DesktopClient;
 
-namespace TextViewModel_UnitTest
+namespace LUNPO.DesktopClient.UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TextViewModelTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SaveAsTest()
         {
+            
         }
     }
 }
