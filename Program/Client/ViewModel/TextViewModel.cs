@@ -84,6 +84,7 @@ namespace Client.ViewModel
             OpenDlg(Text.TextArea);
         }
 
+        // Popup with an open file dialog windows with .txt file extention as default
         private void OpenFile(object obj)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog()
@@ -120,6 +121,7 @@ namespace Client.ViewModel
             ShowMessage(Text.TextArea);
         }
 
+        // Popup with a save file dialog windows with .txt file extention as default
         private void SaveFile(string msg)
         {
 
