@@ -12,20 +12,22 @@ namespace DesktopClient.Framework
 
     public class PluginInit
     {
+        // declare Plugins as a dictionary.
         public Dictionary<string, IPlugin> Plugins;
 
 
         public PluginInit()
         {
+      
 
             Plugins = new Dictionary<string, IPlugin>();
             ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
             try
             {
 
-                foreach (var item in plugins)
+                foreach (var plugin in plugins)
                 {
-                    Plugins.Add(item.Name, item);
+                    Plugins.Add(plugin.Name, plugin);
                 }
             }
             catch (Exception)
