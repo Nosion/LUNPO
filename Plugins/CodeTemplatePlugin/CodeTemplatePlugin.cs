@@ -19,23 +19,15 @@ using System.Reflection;
 namespace CodeInjectionPlugin
 {
 
-        public class CodeInjection : IPlugin, INotifyPropertyChanged
+    public class CodeTemplatePlugin : IPlugin, INotifyPropertyChanged
         {
+            
+            private string textBoxContent;
             public string SavePath { get; set; }
             public Text Text { get; private set; }
             public event PropertyChangedEventHandler PropertyChanged;
-            protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
-            {
-                if (Equals(storage, value))
-                {
-                    return false;
-                }
 
-                storage = value;
-                this.OnPropertyChanged(propertyName);
-                return true;
-            }
-
+            // Invoked when adding content to textBoxContent
             protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
             {
                 PropertyChangedEventHandler eventHandler = this.PropertyChanged;
@@ -49,21 +41,32 @@ namespace CodeInjectionPlugin
             {
                 get
                 {
-                    return "First Plugin";
+                    return "CodeTemplate Plugin";
                 }
             }
 
+            public void setTextBoxContent(string content, bool update)
+            {
+                TextBoxContent = content;
+                if (update)
+                {
+                    OnPropertyChanged("TextBoxContent");
+                }
+            }
+
+            
+            // When MenuItems is called, the name is added menuItem so that the pluginLoader read it.
             public MenuItem MenuItems
             {
                 get
                 {
-                    DelegateCommand<object> delegateSomething = new DelegateCommand<object>(Do);
-                    var menu = new MenuItem("FirstPlugin");
-                    MenuItem menuItem = new MenuItem("HTML tag");
+                    DelegateCommand<object> delegatePluginMenu = new DelegateCommand<object>(Do);
+                    var menu = new MenuItem("CodeTemplate");
+                    MenuItem menuItem = new MenuItem("HTML tags");
                     MenuItem menuitem = new MenuItem("test");
                     
                     
-                    menuItem.Command = delegateSomething;
+                    menuItem.Command = delegatePluginMenu;
                     menu.Children.Add(menuItem);
                     return menu;
                 }
@@ -75,18 +78,23 @@ namespace CodeInjectionPlugin
                 set 
                 { 
                     textBoxContent = value;
-                    OnPropertyChanged("TextBoxContent");
                 } 
             }
-            private string textBoxContent;
+            
+            // executed method when menu item is clicked on UI.
             public void Do(object obj)
             {
-                if (TextBoxContent != null)
+                if (!string.IsNullOrEmpty(TextBoxContent))
                 {
+                    byte[] ascIIBytes = Encoding.ASCII.GetBytes(TextBoxContent);
+
+                    foreach(byte b in ascIIBytes){
+                        Console.WriteLine("Content in textfield is:" + b + "-End of file");
+                    }
                     
                 }
                 else {
-                    TextBoxContent = Properties.Resources.testhtml;
+                    setTextBoxContent(Properties.Resources.testhtml, true);
                 }
                 
             }

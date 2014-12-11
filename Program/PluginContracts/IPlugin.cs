@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Utils;
 namespace PluginContracts
 {
+
+    // 
     public interface IPlugin
     {
         string Name { get; }
@@ -17,5 +19,7 @@ namespace PluginContracts
         string SavePath { get; set; }
         
         event PropertyChangedEventHandler PropertyChanged;
+
+        void setTextBoxContent(string content, bool update);
     }
 }

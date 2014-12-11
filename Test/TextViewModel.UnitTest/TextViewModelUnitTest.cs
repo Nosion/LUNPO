@@ -4,7 +4,6 @@ using DesktopClient.ViewModel;
 using DesktopClient.Framework;
 using System.Collections.Generic;
 using PluginContracts;
-using DesktopClient.ViewModel;
 
 namespace LUNPO.DesktopClient.UnitTest
 {

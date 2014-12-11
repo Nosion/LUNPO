@@ -9,17 +9,13 @@ using PluginContracts;
 
 namespace DesktopClient.Framework
 {
-
+    // Loads plugins into Directory Plugins
     public class PluginInit
     {
-        // declare Plugins as a dictionary.
         public Dictionary<string, IPlugin> Plugins;
-
-
+ 
         public PluginInit()
         {
-      
-
             Plugins = new Dictionary<string, IPlugin>();
             ICollection<IPlugin> plugins = GenericPluginLoader<IPlugin>.LoadPlugins("Plugins");
             try
@@ -33,11 +29,8 @@ namespace DesktopClient.Framework
             catch (Exception)
             {
             }
-
       
         }
-
-
 
     }
 }
