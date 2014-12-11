@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\AutoSavePlugin\AutoSavePlugin.csproj">
+      <Project>{49c2cc86-6d27-4263-ad8c-bac5b3a55c5c}</Project>
+      <Name>AutoSavePlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Program\Client\DesktopClient.csproj">
       <Project>{2a06f37b-47ad-4fd0-b9cf-1bb5c1ae3448}</Project>
       <Name>DesktopClient</Name>
@@ -61,10 +65,6 @@
     <ProjectReference Include="..\..\Program\PluginContracts\PluginContracts.csproj">
       <Project>{fd0daf54-09da-4102-b227-f8ca593c4d24}</Project>
       <Name>PluginContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\SecondPlugin\AutoSavePlugin.csproj">
-      <Project>{49c2cc86-6d27-4263-ad8c-bac5b3a55c5c}</Project>
-      <Name>AutoSavePlugin</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

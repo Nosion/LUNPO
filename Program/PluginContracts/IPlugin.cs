@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Utils;
 namespace PluginContracts
 {
+
+    // 
     public interface IPlugin
     {
         string Name { get; }

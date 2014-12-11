@@ -61,8 +61,7 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <Label Content="1" HorizontalAlignment="Left" Width="30" Margin="0,23,0,10"/>
-        <TextBox Margin="30,23,0,0" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Text.TextArea, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Margin="0,23,0,0" TextWrapping="Wrap" AcceptsReturn="True" Text="{Binding Text.TextArea, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </Window>

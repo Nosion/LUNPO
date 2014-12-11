@@ -2,8 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoSavePlugin;
 
-
-
 namespace SecondPlugin.UnitTest
 {
     [TestClass]
