@@ -18,7 +18,11 @@ namespace LUNPO.DesktopClient.UnitTest
             PluginInit pluginInit = new PluginInit();
             TextViewModel textViewModel = new TextViewModel(new Dictionary<string, IPlugin>());
 
-          //  textViewModel.SaveAsDlg
+            Type t = typeof(TextViewModel);
+                Assert.IsTrue(t.IsAbstract);
+            
+
+           //  textViewModel.SaveAsDlg
         }
     }
 }
