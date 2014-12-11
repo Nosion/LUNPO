@@ -19,5 +19,7 @@ namespace PluginContracts
         string SavePath { get; set; }
         
         event PropertyChangedEventHandler PropertyChanged;
+
+        void setTextBoxContent(string content, bool update);
     }
 }

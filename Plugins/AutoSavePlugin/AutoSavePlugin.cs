@@ -14,28 +14,22 @@ using PluginContracts;
 using Utils;
 using DesktopClient.Model;
 using DesktopClient.ViewModel;
+using System.Threading.Tasks;
+using System.Timers;
 
 
 namespace AutoSavePlugin
 {
     public class AutoSave : IPlugin, INotifyPropertyChanged
     {
+
+        private static System.Timers.Timer aTimer;
         public string SavePath { get; set; }
-        //public MediaTypeNames.Text Text { get; private set; }
+        
         public event PropertyChangedEventHandler PropertyChanged;
         private string textBoxContent;
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
-        {
-            if (Equals(storage, value))
-            {
-                return false;
-            }
 
-            storage = value;
-            this.OnPropertyChanged(propertyName);
-            return true;
-        }
-
+        // Used to autosave when changes have happend to textboxcontent.
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChangedEventHandler eventHandler = this.PropertyChanged;
@@ -45,6 +39,7 @@ namespace AutoSavePlugin
             }
         }
 
+        // The name of the plugin, can be used to eg. list plugins.
         public string Name
         {
             get
@@ -52,17 +47,26 @@ namespace AutoSavePlugin
                 return "AutoSave Plugin";
             }
         }
+        public void setTextBoxContent(string content, bool update)
+        {
+            TextBoxContent = content;
+            if (update)
+            {
+                OnPropertyChanged("TextBoxContent");
+            }
+        }
 
+        // Delegate menu method and specifying the menu names.
         public MenuItem MenuItems
         {
             get
             {
-                DelegateCommand<object> delegateSomething = new DelegateCommand<object>(AutoTimeSave);
+                DelegateCommand<object> delegateMenu = new DelegateCommand<object>(AutoTimeSave);
                 var menu = new MenuItem("AutoSavePlugin");
                 MenuItem menuItem = new MenuItem("Write to console");
 
 
-                menuItem.Command = delegateSomething;
+                menuItem.Command = delegateMenu;
                 menu.Children.Add(menuItem);
                 return menu;
             }
@@ -74,21 +78,20 @@ namespace AutoSavePlugin
             set
             {
                 textBoxContent = value;
-                OnPropertyChanged("TextBoxContent");
             }
         }
 
+        // Main AutoSave plugin method.
         public void AutoTimeSave(object obj)
         {
             Console.WriteLine(SavePath);
-
-
-            /*if (save.ShowDialog() == true)
+            OnPropertyChanged("TextBoxContent");
+            
+            if (SavePath != null)
             {
+                File.WriteAllText(SavePath, TextBoxContent);
+            }
 
-                File.WriteAllText(save.FileName, save.FileName);
-                //Console.WriteLine(TextViewModel.SavePath);
-            }*/
         }
 
 

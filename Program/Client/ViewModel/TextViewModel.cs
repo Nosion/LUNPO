@@ -19,6 +19,23 @@ namespace DesktopClient.ViewModel
     {
         private string savePath;
 
+        //private string textareathing;
+
+        //public string Textareathing
+        //{
+        //    get { return savePath; }
+        //    set
+        //    {
+        //        // Value equals to filepath, that is set in savefile method.
+        //        savePath = value;
+        //        foreach (var plugin in plugins)
+        //        {
+        //            plugin.Value.SavePath = savePath;
+        //        }
+        //    }
+        //}
+       
+
         // Get and set filepath where file is saved.
         public string SavePath
         {
@@ -50,6 +67,9 @@ namespace DesktopClient.ViewModel
         public TextViewModel(Dictionary<string, IPlugin> plugins)
         {
             Text = new Text();
+            Text.PropertyChanged += Text_PropertyChanged;
+            
+
             this.plugins = plugins;
             foreach (var plugin in this.plugins)
             {
@@ -72,11 +92,20 @@ namespace DesktopClient.ViewModel
             ShowMessage = msg => MessageBox.Show(msg);
         }
 
+        void Text_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            foreach (var plugin in this.plugins)
+            {
+                plugin.Value.setTextBoxContent(this.Text.TextArea, false);
+
+                 
+            }
+        }
+
         void Value_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             Text.TextArea = ((IPlugin)sender).TextBoxContent;
         }
-
 
         private void OpenCommandExecute(object obj)
         {
@@ -95,6 +124,7 @@ namespace DesktopClient.ViewModel
             {
                 string fileName = openFileDialog.FileName;
                 Text.TextArea = File.ReadAllText(fileName);
+
             }
         }
 
