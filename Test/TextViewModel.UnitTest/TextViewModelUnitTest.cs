@@ -18,7 +18,7 @@ namespace LUNPO.DesktopClient.UnitTest
             TextViewModel textViewModel = new TextViewModel(new Dictionary<string, IPlugin>());
 
             Type t = typeof(TextViewModel);
-                Assert.IsTrue(t.IsAbstract);
+            Assert.IsTrue(t.IsPublic);
             
 
            //  textViewModel.SaveAsDlg

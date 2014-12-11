@@ -7,8 +7,8 @@
     <ProjectGuid>{12671ECF-AFA7-4F2E-9456-FB7F7B189650}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeInjectionPlugin</RootNamespace>
-    <AssemblyName>CodeInjectionPlugin</AssemblyName>
+    <RootNamespace>CodeTemplatePlugin</RootNamespace>
+    <AssemblyName>CodeTemplatePlugin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

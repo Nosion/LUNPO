@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTemplatePlugin", "Plugi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoSavePlugin", "Plugins\AutoSavePlugin\AutoSavePlugin.csproj", "{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTemplatePlugin.UnitTest", "CodeTemplatePlugin,.UnitTest\CodeTemplatePlugin.UnitTest.csproj", "{179D534B-CCFF-4B42-A32C-4B8825C3B46D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{179D534B-CCFF-4B42-A32C-4B8825C3B46D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179D534B-CCFF-4B42-A32C-4B8825C3B46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179D534B-CCFF-4B42-A32C-4B8825C3B46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179D534B-CCFF-4B42-A32C-4B8825C3B46D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{3CD306E5-7B5A-471F-BC5E-B2EE00F466D0} = {328CB8EE-D665-4EA5-86E4-CD1F58735900}
 		{12671ECF-AFA7-4F2E-9456-FB7F7B189650} = {757308C5-6BB2-4D6C-813B-B76172D703C4}
 		{49C2CC86-6D27-4263-AD8C-BAC5B3A55C5C} = {757308C5-6BB2-4D6C-813B-B76172D703C4}
+		{179D534B-CCFF-4B42-A32C-4B8825C3B46D} = {328CB8EE-D665-4EA5-86E4-CD1F58735900}
 	EndGlobalSection
 EndGlobal

@@ -16,10 +16,10 @@ using System.IO;
 using System.Reflection;
 
 
-namespace CodeInjectionPlugin
+namespace CodeTemplatePlugin
 {
 
-    public class CodeTemplatePlugin : IPlugin, INotifyPropertyChanged
+    public class CodeTemplate : IPlugin, INotifyPropertyChanged
         {
             
             private string textBoxContent;
