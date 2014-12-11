@@ -1,29 +1,91 @@
 @startuml
 
-DesktopClient - Class Diagram
 
 
-class TextViewModel {
-  +OpenDlg
-  -plugins
-  +SaveAsDlg
-  -string savePath
-  +ShowMessage
-  
-  -void OpenCommandExecute()
-  -void OpenFile()
-  -void SaveAsCommandExecute()
-  -void SaveCommandExecute()
-  -void SaveFile()
-  +TextVievModel()
-  -void Value_PropertyChanged()
+package LUNPO.DesktopClient.ViewModel {
+
+Text -|> ObservableObject
+
+    class TextViewModel {
+    ..Properties..
+      +ObservableCollection<MenuItem> MenuItems {get}
+      +DelegateCommand<object> OpenCommand {get -set}
+      +DelegateCommand<object> SaveAsCommand {get -set}
+      +DelegateCommand<object> OpenCommand {get -set}
+      +string SavePath {get; set;}
+      +Text Text { get; private set;}
+      
+    ..Fields..
+      +string OpenDlg
+      -Dictionary<string, IPlugin>plugins
+      +string SaveAsDlg
+      -string savePath
+      +string ShowMessage
+      
+      ..Methods..
+      -void OpenCommandExecute(object obj)
+      -void OpenFile(object obj)
+      -void SaveAsCommandExecute(object obj)
+      -void SaveCommandExecute(object obj)
+      -void SaveFile(string msg)
+      +TextVievModel(Dictionary<string, IPlugin> plugins)
+      -void Value_PropertyChanged(object sender, PropertyChangedEventArgs e)
+    }
+    
+    class Text {
+    ..Fields..
+      -string _textArea
+    ..Properties..
+      +string TextArea {get; set;}
+    }
+    
+    class ObservableObject {
+    ..Methods..
+      #NotifyPropertyChanged
+    }
+    
+    class App {
+    ..Mentods..
+      -void Appilication_Startup(object sender, StartupEventArgs e)
+    }
+    
+    class PluginInit {
+    ..Fields..
+      +Dictionary<string, IPlugin> Plugins
+    ..Methods..
+      +PlugnInit
+    }
 }
 
-class Text:ObservableObject {
-  -string _textArea
-  
+package LUNPO.Utils {
+    skinparam componentStyle uml2
+    class MenuItem {
+      .. Properties ..
+        +List<MenuItem> Chrildren { get; set; }
+        +DelegateCommand<object> Command { get; set; }
+        +Text string { get; set; }
+    
+      .. Method Examples ..
+        +MenuItem(string item)
+    }
+    
+    class DelegateCommand{
+        ..Fields..
+        readonly Action<T> _CanExecute
+        readonly Predicate<T> _Execute
+    
+        ..Properties..
+        +string Label { get; set;} 
+    
+        ..Methods..
+        +bool CanExecute(object parameter)
+        DelegateCommand
+        +void Execute(object parameter)
+        +void RaiseCanExecuteChanged()
+    
+        ..Events..
+        + event EventHandler CanExecuteChanged{add} {remove}
+    }
 }
-class House
-class Commune
 
 @enduml

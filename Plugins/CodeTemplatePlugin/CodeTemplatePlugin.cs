@@ -81,13 +81,12 @@ namespace CodeInjectionPlugin
                 } 
             }
             
+            // executed method when menu item is clicked on UI.
             public void Do(object obj)
             {
                 if (!string.IsNullOrEmpty(TextBoxContent))
                 {
                     byte[] ascIIBytes = Encoding.ASCII.GetBytes(TextBoxContent);
-
-                    Console.WriteLine("test");
 
                     foreach(byte b in ascIIBytes){
                         Console.WriteLine("Content in textfield is:" + b + "-End of file");
